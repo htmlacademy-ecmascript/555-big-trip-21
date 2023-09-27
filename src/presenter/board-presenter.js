@@ -27,14 +27,14 @@ export default class BoardPresenter {
       pointOffers: this.offers.getByType(this.points[0].type)
     }), this.eventListComponent.getElement());
 
-    this.points.forEach((point) => {
+    for (let i = 0; i < this.points.length; i++) {
       render(
         new PointView({
-          point,
-          pointDestination: this.destination.getById(point.destination),
-          pointOffers: this.offers.getByType(point.type)
+          point: this.points[i],
+          pointDestination: this.destination.getById(this.points[i].destination),
+          pointOffers: this.offers.getByType(this.points[i].type)
         }), this.eventListComponent.getElement()
       );
-    });
+    }
   }
 }
